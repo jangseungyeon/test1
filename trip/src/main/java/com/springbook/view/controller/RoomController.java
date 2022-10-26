@@ -39,7 +39,7 @@ public class RoomController {
 		}
 		roomService.insertRoom(rvo);
 		System.out.println("숙소 등록 성공");
-		return "getRoomList.do";
+		return "redirect:getRoomList.do";
 	}
 	
 	//숙소 수정 (새션에 저장한 업주 호스트 아이디와 숙소 상세 페이지의 아이디와 일치해야 수정, 그 후 숙소 목록으로 돌아감)
@@ -49,7 +49,7 @@ public class RoomController {
 		if(rvo.getHost_id().equals(session.getAttribute("host_id").toString()) ) {
 			roomService.updateRoom(rvo);
 			System.out.println("숙소 수정 성공");
-			return "getRoomList.do";
+			return "redirect:getRoomList.do";
 		} else {
 			return "getRoom.do?error=y";
 		}
