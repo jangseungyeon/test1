@@ -30,19 +30,25 @@
 		// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
 		function naverSignInCallback() {
 			alert('로그인성공');
-			var id = naver_id_login.getProfileData('id');
+			var id = naver_id_login.getProfileData('email');
 			var name = naver_id_login.getProfileData('name');
+<<<<<<< HEAD
 			var email = naver_id_login.getProfileData('email');
 			 $('#naver_id').val(id);
        	  $('#naver_password').val(id);
        	  $('#naver_name').val(name);
        	  $('#naver_email').val(email);
        	  document.querySelector('#kakao_form').submit();
+=======
+// 			var mobile = naver_id_login.getProfileData('mobile');
+			location.href="http://localhost:8090"+contextPath+"/naverLogin.main?id="+id+"&name="+name;
+>>>>>>> 719981c7229a073ecd9b45a78d46fc637325340a
 		}
 	</script>
 </body>
 
 
+<<<<<<< HEAD
 <form action="naver_login.do" id="kakao_form" method="post">
 <input name="user_id" id="naver_id" type="hidden">
 <input name="user_password" id="naver_password" type="hidden">
@@ -51,4 +57,7 @@
 </form>
 
   </body>
+=======
+<!--   </body> -->
+>>>>>>> 719981c7229a073ecd9b45a78d46fc637325340a
 </html>

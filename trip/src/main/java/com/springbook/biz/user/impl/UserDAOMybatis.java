@@ -11,10 +11,11 @@ public class UserDAOMybatis {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	public int insertUser(UserVO vo) {
+	public void insertUser(UserVO vo) {
 		System.out.println("insertBoard");
 		System.out.println("insertUser: " + vo);
-		return mybatis.insert("UserDAO.user_insert", vo);
+		mybatis.insert("UserDAO.user_insert", vo);
+		System.out.println("mybatis_user");
 	}
 
 	public int user_idCheck(UserVO vo) {
