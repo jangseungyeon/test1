@@ -27,9 +27,5 @@ public class UserServiceImpl implements UserService {
 		System.out.println("user_login");
 		return userDAO.user_login(vo);
 	}
-	@Override
-	public UserVO getUser(UserVO vo) {
-		return userDAO.getUser(vo);
-	}
 
 }

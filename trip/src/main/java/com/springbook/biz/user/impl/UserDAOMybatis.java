@@ -38,9 +38,4 @@ public class UserDAOMybatis {
 		System.out.println("user_login: "+vo);
 		return mybatis.selectOne("UserDAO.login",vo);
 	}
-
-	public UserVO getUser(UserVO vo) {
-		System.out.println("===>mybatis getBoard() 기능처리" + vo);
-		return (UserVO) mybatis.selectOne("UserDAO.getUser", vo);
-	}
 }
