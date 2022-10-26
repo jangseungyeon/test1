@@ -11,10 +11,11 @@ public class UserDAOMybatis {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 
-	public int insertUser(UserVO vo) {
+	public void insertUser(UserVO vo) {
 		System.out.println("insertBoard");
 		System.out.println("insertUser: " + vo);
-		return mybatis.insert("UserDAO.user_insert", vo);
+		mybatis.insert("UserDAO.user_insert", vo);
+		System.out.println("mybatis_user");
 	}
 
 	public int user_idCheck(UserVO vo) {
@@ -36,5 +37,10 @@ public class UserDAOMybatis {
 	public UserVO user_login(UserVO vo) {
 		System.out.println("user_login: "+vo);
 		return mybatis.selectOne("UserDAO.login",vo);
+	}
+
+	public UserVO getUser(UserVO vo) {
+		System.out.println("===>mybatis getBoard() 기능처리" + vo);
+		return (UserVO) mybatis.selectOne("UserDAO.getUser", vo);
 	}
 }

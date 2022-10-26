@@ -17,7 +17,7 @@
 	<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script>
 Kakao.init('fb1c12c845e4f94116af70e4a7e21136'); //발급받은 키 중 javascript키를 사용해준다.
-// console.log(Kakao.isInitialized()); // sdk초기화여부판단
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
 //카카오로그인
 function kakaoLogin() {
     Kakao.Auth.login({
@@ -25,28 +25,15 @@ function kakaoLogin() {
         Kakao.API.request({
           url: '/v2/user/me',
           success: function (response) {
-        	  var account = response.kakao_account;
-        	  console.log(response);
-        	  console.log(response.id);
-        	  console.log(account.profile.nickname);
-        	  console.log(account.email);
-        	  if(account.email==null||account.email==''){
-        		  alert('이메일 동의 필수사항');
-        	  }else{
-        	  $('#kakao_id').val(response.id);
-        	  $('#kakao_password').val(response.id);
-        	  $('#kakao_email').val(account.email);
-        	  $('#kakao_name').val(account.profile.nickname);
-        	  document.querySelector('#kakao_form').submit();
-        	  }
+        	  console.log(response)
           },
           fail: function (error) {
-            console.log(error);
+            console.log(error)
           },
         })
       },
       fail: function (error) {
-        console.log(error);
+        console.log(error)
       },
     })
   }
@@ -56,39 +43,27 @@ function kakaoLogout() {
       Kakao.API.request({
         url: '/v1/user/unlink',
         success: function (response) {
-        	console.log(response);
+        	console.log(response)
         },
         fail: function (error) {
-          console.log(error);
+          console.log(error)
         },
       })
-      Kakao.Auth.setAccessToken(undefined);
+      Kakao.Auth.setAccessToken(undefined)
     }
   }  
-<%if(request.getParameter("fail")!=null){ %>
-  alert("로그인실패");
-  <%}
-  %>
+  
 </script>
 </head>
 <body>
-
-<!-- 카카오로그인폼 -->
-<form action="kakao_login.do" id='kakao_form'>
-<input name="user_id" id="kakao_id" type="hidden">
-<input name="user_password" id="kakao_password" type="hidden">
-<input name="user_name" id="kakao_name" type="hidden">
-<input name="user_email" id="kakao_email" type="hidden">
-</form>
-<!-- 회원로그인 -->
 <form action="user_login.do" method="post">
+<!-- <form action="myinfo.jsp" method="post"> -->
 <input name="user_id" placeholder="아이디">
 <input name="user_password" placeholder="비밀번호">
 <button>로그인버튼</button>
 </form>
 
 <button onclick="kakaoLogin()">카카오 로그인</button>
-<button onclick="kakaoLogout()">카카오 로그아웃</button>
 
 							<a type="button" class="btn" id="naverIdLogin_loginButton" href="javascript:void(0)">네이버 로그인</a>
 					<script
@@ -114,7 +89,6 @@ function kakaoLogout() {
 						window.addEventListener('load', function() {
 							naverLogin.getLoginStatus(function(status) {
 								if (status) {
-									console.log(naverLogin.user);
 									var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
 									var name = naverLogin.user.getName();
 
@@ -156,6 +130,5 @@ function kakaoLogout() {
 
 						}
 					</script>
-					<a>아이디찾기</a><a>비밀번호찾기</a><a href="insert.jsp">회원가입</a>
 </body>
 </html>

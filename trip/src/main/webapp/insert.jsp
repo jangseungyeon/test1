@@ -14,16 +14,8 @@
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-<%if(request.getParameter("insert")!=null){%>
-alert("계정생성에 실패했습니다");
-<% 
-	
-} %>
-var idReg = /^[A-za-z0-9]{6,12}$/g;   // 아이디
-var pwReg = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$/;  // 비밀번호 
-var passwordCheck = false;//비밀번호재확인
-var idCheck = false;//아이디 중복체크
-var con=false;//인증
+	var passwordCheck = false;
+	var idCheck = false;
 	//휴대폰
 	$(function() {
 		//휴대폰 번호 인증 
@@ -62,8 +54,7 @@ var con=false;//인증
 				$(".successPhoneChk").css("color", "green");
 				$("#phoneDoubleChk").val("true");
 				$("#phone2").attr("disabled", true);
-				$('#user_phone').val($("#phone").val());
-				con=true;
+				$('.submitbutton').attr('type', 'submit');
 			} else {
 				$(".successPhoneChk").text("인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.");
 				$(".successPhoneChk").css("color", "red");
@@ -73,8 +64,47 @@ var con=false;//인증
 		});
 
 	});
-	
-	
+	// 비밀번호 재확인
+	$(function() {
+		$('#user_passwordCheck').focusout(function() {
+			console.log($('#user_passwordCheck').val());
+			if ($('#user_passwordCheck').val() != $('#user_password').val()) {
+				alert("비밀번호재확인필요");
+
+			} else {
+				passwordCheck = true;
+			}
+		})
+	})
+	// 	아이디 중복체크
+	$(function() {
+		$('#idCheck').click(function() {
+			$.ajax({
+				url : "user_idCheck.do",
+				type : "post",
+				data : {
+					user_id : $('#user_id').val()
+				},
+				cache : false,
+				success : function(result) {
+					console.log(result);
+					if (result == 0) {
+						alert("아이디사용가능");
+						idCheck = true;
+					} else if (result == 1) {
+						alert("아이디존재");
+					} else {
+						alert("그외");
+					}
+				},
+				error : function() {
+					alert("서버요청실패");
+				}
+			});
+
+		});
+	});
+
 	$(function() {
 		var emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 		var email = $("#email");
@@ -107,7 +137,7 @@ var con=false;//인증
 			}
 		});
 	});
-//이메일인증
+
 	function emailCheck() {
 		var emailCheck = $("#emailCheck").val();
 		if (emailCheck == "") {
@@ -122,8 +152,7 @@ var con=false;//인증
 				success : function(data) {
 					if (data == true) {
 						alert("인증되었습니다.");
-						$('#user_email').val($("#email").val());
-						con=true;
+						$('.submitbutton').attr('type', 'submit')
 					} else {
 						alert("인증번호가 일치하지 않습니다.");
 					}
@@ -134,88 +163,28 @@ var con=false;//인증
 			});
 		}
 	}
-	
-	
-	
-	// 비밀번호 재확인
-	$(function() {
-		$('#user_passwordCheck').focusout(function() {
-			console.log($('#user_passwordCheck').val());
-			if ($('#user_passwordCheck').val() != $('#user_password').val()) {
-				alert("비밀번호재확인필요");
-
-			} else {
-				passwordCheck = true;
-			}
-		})
-	})
-	// 	아이디 중복체크
-	$(function() {
-		$('#idCheck').click(function() {
-			if($('#user_id').val()!=''){
-				
-			$.ajax({
-				url : "user_idCheck.do",
-				type : "post",
-				data : {
-					user_id : $('#user_id').val()
-				},
-				cache : false,
-				success : function(result) {
-					console.log(result);
-					if (result == 0) {
-						alert("아이디사용가능");
-						idCheck = true;
-					} else if (result == 1) {
-						alert("아이디존재");
-					} else {
-						alert("그외");
-					}
-				},
-				error : function() {
-					alert("서버요청실패");
-				}
-			});
-			}else{
-				alert("아이디에 공백불가");
-			}
-
-		});
-	});
-
-	//회원가입버튼
 	function check() {
-		if(!idReg.test($('#user_id').val())){
-			alert('아이디는 영어대/소문자 0~9자리만');
-		}else if(!pwReg.test($('#user_password').val())){
-			alert('비밀번호는 8 ~ 16자 영문, 숫자, 특수문자를 최소 한가지씩 조합');
-		}
-		else if (idCheck == false) {
-			alert("아이디중복체크하세요");
-		}
-		else if (passwordCheck == false) {
+		if (passwordCheck == false) {
 			alert("비밀번호재확인필요");
-		}else if(con==false){
-			alert("인증필요");
-		}else{
-			$('#user_insert').submit();
+			return false;
+		}
+		if (idCheck == false) {
+			alert("아이디중복체크하세요");
+			return false;
 		}
 
 	}
-	//인증선택
-	function emailconfig() {
+	function emailCheck() {
 		$('#config').show();
 		$('#config1').hide();
 	}
-	function phoneconfig() {
+	function phoneCheck() {
 		$('#config1').show();
 		$('#config').hide();
 	}
 </script>
 </head>
-<body>
-
-<form action="user_insert.do" method="post" id="user_insert">
+<form action="user_insert.do" method="post">
 	<input type="text" name="user_id" id="user_id" placeholder='아이디'>
 	<button type="button" id="idCheck">아이디중복체크</button>
 	<br> <input type="password" name="user_password"
@@ -223,12 +192,10 @@ var con=false;//인증
 	<input type="password" name="user_passwordCheck"
 		id="user_passwordCheck" placeholder='비밀번호재확인'><br>
 	<input type="text" name="user_name" placeholder='이름'><br>
-	<input type="hidden" name="user_phone" id="user_phone">
-	<input type="hidden" name="user_email" id="user_email">
 	<button type="button" class="submitbutton" onclick="check()">회원가입</button>
 </form>
-<button type="button" id="emailconfig" onclick="emailconfig()">이메일 인증하기</button>
-<button type="button" id="phoneconfig" onclick="phoneconfig()">전화번호 인증하기</button>
+<button id="emailCheck" onclick="emailCheck()">이메일 인증하기</button>
+<button id="phoneCheck" onclick="phoneCheck()">전화번호 인증하기</button>
 
 
 <div id="config" style="display: none">

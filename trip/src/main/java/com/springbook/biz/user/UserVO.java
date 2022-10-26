@@ -14,14 +14,6 @@ public class UserVO {
 	private String user_address1;
 	private String user_address2;
 	private String user_status;
-	private String user_type;
-	
-	public String getUser_type() {
-		return user_type;
-	}
-	public void setUser_type(String user_type) {
-		this.user_type = user_type;
-	}
 	public String getUser_id() {
 		return user_id;
 	}
@@ -87,7 +79,7 @@ public class UserVO {
 		return "UserVO [user_id=" + user_id + ", user_password=" + user_password + ", user_name=" + user_name
 				+ ", user_birth=" + user_birth + ", user_gender=" + user_gender + ", user_email=" + user_email
 				+ ", user_phone=" + user_phone + ", user_address1=" + user_address1 + ", user_address2=" + user_address2
-				+ ", user_status=" + user_status +"user_tpye="+user_type+ "]";
+				+ ", user_status=" + user_status + "]";
 	}
 
 }

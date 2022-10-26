@@ -30,16 +30,14 @@
 		// 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
 		function naverSignInCallback() {
 			alert('로그인성공');
-			var id = naver_id_login.getProfileData('id');
+			var id = naver_id_login.getProfileData('email');
 			var name = naver_id_login.getProfileData('name');
-			var email = naver_id_login.getProfileData('email');
-// 			location.href="http://localhost:8090"+contextPath+"/naver_login.do?user_id="+id+"&user_password="+id+"&user_name="+name+"&user_email="+email;
+// 			var mobile = naver_id_login.getProfileData('mobile');
+			location.href="http://localhost:8090"+contextPath+"/naverLogin.main?id="+id+"&name="+name;
 		}
 	</script>
 </body>
 
-<!-- <form action="naver_login.do"> -->
 
-<!-- </form> -->
 <!--   </body> -->
 </html>

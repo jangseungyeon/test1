@@ -5,8 +5,8 @@
 <mapper namespace="UserDAO">
 
 <insert id="user_insert">
-		INSERT INTO USER (USER_ID, USER_PASSWORD, USER_NAME,USER_EMAIL,USER_PHONE,USER_TYPE) 
-		VALUES (#{user_id}, #{user_password}, #{user_name},#{user_email},#{user_phone},#{user_type})
+		INSERT INTO USER (user_id, user_password, user_name) 
+		VALUES (#{user_id}, #{user_password}, #{user_name})
 	</insert>
 	
 <select id="idCheck" resultType="user">
