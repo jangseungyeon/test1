@@ -33,13 +33,22 @@
 			var id = naver_id_login.getProfileData('id');
 			var name = naver_id_login.getProfileData('name');
 			var email = naver_id_login.getProfileData('email');
-// 			location.href="http://localhost:8090"+contextPath+"/naver_login.do?user_id="+id+"&user_password="+id+"&user_name="+name+"&user_email="+email;
+			 $('#naver_id').val(id);
+       	  $('#naver_password').val(id);
+       	  $('#naver_name').val(name);
+       	  $('#naver_email').val(email);
+       	  document.querySelector('#kakao_form').submit();
 		}
 	</script>
 </body>
 
-<!-- <form action="naver_login.do"> -->
 
-<!-- </form> -->
-<!--   </body> -->
+<form action="naver_login.do" id="kakao_form" method="post">
+<input name="user_id" id="naver_id" type="hidden">
+<input name="user_password" id="naver_password" type="hidden">
+<input name="user_name" id="naver_name" type="hidden">
+<input name="user_email" id="naver_email" type="hidden">
+</form>
+
+  </body>
 </html>
