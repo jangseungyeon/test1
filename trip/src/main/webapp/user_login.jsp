@@ -57,7 +57,6 @@ function kakaoLogout() {
 </head>
 <body>
 <form action="user_login.do" method="post">
-<!-- <form action="myinfo.jsp" method="post"> -->
 <input name="user_id" placeholder="아이디">
 <input name="user_password" placeholder="비밀번호">
 <button>로그인버튼</button>

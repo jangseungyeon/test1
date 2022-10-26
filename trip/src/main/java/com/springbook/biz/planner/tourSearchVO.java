@@ -1,0 +1,53 @@
+package com.springbook.biz.planner;
+
+public class tourSearchVO {
+	private String title;
+	private String addr1;
+	private String addr2;
+	private String mapx;
+	private String mapy;
+	private String firstimage;
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+	public String getMapx() {
+		return mapx;
+	}
+	public void setMapx(String mapx) {
+		this.mapx = mapx;
+	}
+	public String getMapy() {
+		return mapy;
+	}
+	public void setMapy(String mapy) {
+		this.mapy = mapy;
+	}
+	public String getFirstimage() {
+		return firstimage;
+	}
+	public void setFirstimage(String firstimage) {
+		this.firstimage = firstimage;
+	}
+	@Override
+	public String toString() {
+		return "tourSearchVO [title=" + title + ", addr1=" + addr1 + ", addr2=" + addr2 + ", mapx=" + mapx + ", mapy="
+				+ mapy + ", firstimage=" + firstimage + "]";
+	}
+	
+	
+}
