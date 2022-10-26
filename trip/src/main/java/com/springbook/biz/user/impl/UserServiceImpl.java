@@ -12,9 +12,9 @@ public class UserServiceImpl implements UserService {
 	private UserDAOMybatis userDAO;
 
 	@Override
-	public void insert(UserVO vo) {
+	public int insert(UserVO vo) {
 		System.out.println("11");
-		userDAO.insertUser(vo);
+		return userDAO.insertUser(vo);
 
 	}
 	@Override

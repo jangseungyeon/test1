@@ -38,39 +38,34 @@
       </dependency>
 	
 		<!-- coolsms 문자인증관련 -->
-		<!-- https://mvnrepository.com/artifact/net.nurigo/sdk -->
 		<dependency>
-		    <groupId>net.nurigo</groupId>
-		    <artifactId>sdk</artifactId>
-		    <version>4.0.4</version>
+			<groupId>net.nurigo</groupId>
+			<artifactId>javaSDK</artifactId>
+			<version>2.2</version>
 		</dependency>
 		<!-- 아임포트 관련 -->
-		<!-- https://mvnrepository.com/artifact/com.github.iamport/iamport-rest-client-java -->
 		<dependency>
 			<groupId>com.github.iamport</groupId>
 			<artifactId>iamport-rest-client-java</artifactId>
-			<version>0.2.0</version>
+			<version>0.2.14</version>
 		</dependency>
 		<!-- 아임포트 관련 아파치 httpd패키지 필요 -->
-<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.13</version>
+			<version>4.3.5</version>
 		</dependency>
 		<!-- 메일 인증시 필요한 라이브러리 시작 -->
-		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
-			<dependency>
-			    <groupId>org.springframework</groupId>
-			    <artifactId>spring-context-support</artifactId>
-			    <version>5.3.13</version>
-			</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 		<!-- 메일 인증시 필요한 라이브러리 끝 -->
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency>
