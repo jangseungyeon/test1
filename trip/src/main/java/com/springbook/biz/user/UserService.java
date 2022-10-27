@@ -6,6 +6,11 @@ public interface UserService {
 	int idCheck(UserVO vo);
 
 	UserVO login(UserVO vo);
-	UserVO find(UserVO vo);
-	int change(UserVO vo);
+
+	UserVO info(UserVO vo);
+
+	void update(UserVO vo);
+
+	
+
 }

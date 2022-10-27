@@ -5,11 +5,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springbook.biz.user.UserService;
 import com.springbook.biz.user.UserVO;
+
 
 @Controller
 public class UserController {
@@ -29,6 +31,22 @@ public class UserController {
 		}
 
 	}
+	
+//	회원수정
+	@RequestMapping("/user_update.do")
+	public String updateBoard(@ModelAttribute("user") UserVO vo, HttpSession session) {
+		int a =1;
+		int b =1;
+//		if (vo.getUser_id().equals(session.getAttribute("user_id").toString())) {
+			if (a==b) {
+			userService.update(vo);
+			System.out.println("컨트롤러 업데이트 vo"+vo);
+			return "myinfo.jsp";
+		} else {
+			return "getBoard.do?error=1";
+		} 
+
+	}
 
 	// 아이디중복체크
 	@RequestMapping("/user_idCheck.do")
@@ -40,7 +58,7 @@ public class UserController {
 
 	// 로그인
 	@RequestMapping("/user_login.do")
-	public String user_login(UserVO vo, HttpSession session) {
+	public String user_login(UserVO vo, HttpSession session, Model model) {
 		System.out.println("user_login" + vo);
 		vo = userService.login(vo);
 		if (vo != null) {
@@ -48,6 +66,7 @@ public class UserController {
 			String user_name = vo.getUser_name();
 			session.setAttribute("user_id", user_id);
 			session.setAttribute("user_name", user_name);
+			model.addAttribute("user_password", vo.getUser_password());
 			System.out.println("로그인성공");
 			return "index.jsp";
 		} else {
@@ -56,6 +75,36 @@ return "user_login.jsp?fail=1";
 		}
 		
 
+	}
+	
+//	내 정보 확인
+	@RequestMapping("/user_info.do")
+	public String user_info(UserVO vo, HttpSession session, Model model) {
+		System.out.println("user_login" + vo);
+		vo.setUser_id((String)session.getAttribute("user_id"));
+		vo = userService.info(vo);
+		if (vo != null) {
+			String user_id = vo.getUser_id();
+			String user_name = vo.getUser_name();
+			session.setAttribute("user_id", user_id);
+			session.setAttribute("user_name", user_name);
+			model.addAttribute("user_password", vo.getUser_password());
+			model.addAttribute("user_birth", vo.getUser_birth());
+			model.addAttribute("user_gender", vo.getUser_gender());
+			model.addAttribute("user_email", vo.getUser_email());
+			model.addAttribute("user_phone", vo.getUser_phone());
+			model.addAttribute("user_address1", vo.getUser_address1());
+			model.addAttribute("user_address2", vo.getUser_address2());
+			
+			
+		
+			return "myinfo.jsp";
+		} else {
+			
+			return "index.jsp?fail=1";
+		}
+		
+		
 	}
 
 	// 카카오로그인
@@ -90,49 +139,12 @@ return "user_login.jsp?fail=1";
 		}
 	}
 	
-	// 로그아웃
+	// 아이디중복체크
 	@RequestMapping("/user_logout.do")
 	public String user_logout(HttpSession session) {
 		System.out.println("로그아웃");
 		session.invalidate();
 		return "index.jsp";
 	}
-	//아이디찾기
-	@RequestMapping("/user_find.do")
-	public String user_find(UserVO vo,Model model) {
-		vo.setUser_type("own");
-		System.out.println("아이디찾기"+vo);
-		vo=userService.find(vo);
-		System.out.println("찾은결과: "+vo);
-		if(vo!=null) {
-			model.addAttribute("user", vo.getUser_id());
-			return "user_find.jsp";}else {
-				return "user_find.jsp";
-			}
-			
-	}
-	
-	//비밀번호찾기
-		@RequestMapping("/user_pwfind.do")
-		public String user_pwfind(UserVO vo,Model model) {
-			vo.setUser_type("own");
-			System.out.println("비밀번호찾기"+vo);
-			vo=userService.find(vo);
-			System.out.println("찾은결과: "+vo);
-			if(vo!=null) {
-				model.addAttribute("user", vo.getUser_id());
-				return "user_pwfind.jsp";}else {
-					return "user_pwfind.jsp";
-				}
-				
-		}
-		//비밀번호 변경하기
-		
-		@RequestMapping("/user_change.do")
-		public String user_change(UserVO vo,Model model) {
-			System.out.println("비밀번호변경"+vo);
-			int a=userService.change(vo);
-			System.out.println("변경여부:" +a);
-			return "user_pwfind.jsp";			
-		}
+
 }

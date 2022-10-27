@@ -28,14 +28,17 @@ public class UserServiceImpl implements UserService {
 		return userDAO.user_login(vo);
 	}
 	@Override
-	public UserVO find(UserVO vo) {
-		System.out.println("user_find");
-		return userDAO.user_find(vo);
+	public UserVO info(UserVO vo) {
+		
+		return userDAO.user_info(vo);
 	}
 	@Override
-	public int change(UserVO vo) {
-		System.out.println("user_change");
-		return userDAO.user_change(vo);
+	public void update(UserVO vo) {
+		System.out.println("서비스impl");
+		userDAO.user_update(vo);
+		System.out.println();
 	}
+	
+		
 
 }

@@ -122,7 +122,7 @@ var con=false;//인증
 				success : function(data) {
 					if (data == true) {
 						alert("인증되었습니다.");
-// 						$('#user_email').val($("#email").val());
+						$('#user_email').val($("#email").val());
 						con=true;
 					} else {
 						alert("인증번호가 일치하지 않습니다.");
@@ -223,13 +223,22 @@ var con=false;//인증
 	<input type="password" name="user_passwordCheck"
 		id="user_passwordCheck" placeholder='비밀번호재확인'><br>
 	<input type="text" name="user_name" placeholder='이름'><br>
-	<input type="hidden" name="user_phone" id="user_phone" placeholder='핸드폰'>
-	<input type="text" name="user_email" id="user_email" placeholder='이메일'>
+	<input type="hidden" name="user_phone" id="user_phone">
+	<input type="hidden" name="user_email" id="user_email">
 	<button type="button" class="submitbutton" onclick="check()">회원가입</button>
 </form>
+<button type="button" id="emailconfig" onclick="emailconfig()">이메일 인증하기</button>
 <button type="button" id="phoneconfig" onclick="phoneconfig()">전화번호 인증하기</button>
 
 
+<div id="config" style="display: none">
+	<input id="email" class="text_box" type="text" placeholder="이메일 입력"
+		required autofocus>
+	<button id="sendMail" class="btn btn-primary btn-sm" type="button">발송하기</button>
+	<input id='emailCheck' class='text_box' type='text' required disabled>
+	<button id='check' class='btn btn-primary btn-sm'
+		onclick='emailCheck()' type="button">인증확인</button>
+</div>
 <div id="config1" style="display: none">
 	<input id="phone" type="text" name="phone" title="전화번호 입력" /> <span
 		id="phoneChk" class="doubleChk">인증번호 보내기</span> <br /> <input
