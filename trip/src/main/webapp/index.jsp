@@ -196,7 +196,27 @@ a.nav-link {
 	animation: 0.5s visible;
 }
 
-/* @keyframes visible { 0%{opacity: 0;}100%{opacity:1;}} */
+@
+keyframes visible { 0%{
+	opacity: 0;
+}
+100
+
+
+%
+{
+opacity
+
+
+:
+
+
+1
+;
+
+
+}
+}
 </style>
 </head>
 
@@ -228,7 +248,7 @@ a.nav-link {
 			<!-- The slideshow/carousel -->
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="WEB-INF/resources/img/Colorful Skywalk.png"
+					<img src="resources/img/Colorful Skywalk.png"
 						alt="Colorful Skywalk" width="100">
 					<div class="carousel-caption">
 						<h3>Los Angeles</h3>
@@ -236,7 +256,7 @@ a.nav-link {
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+					<img src="resources/img/Light of Baekhakbong Peak.png"
 						alt="Light of Baekhakbong Peak" width="100">
 					<div class="carousel-caption">
 						<h3>Chicago</h3>
@@ -245,7 +265,7 @@ a.nav-link {
 				</div>
 				<div class="carousel-item">
 					<img
-						src="WEB-INF/resources/img/Winter Wonderland_Donggung Palace & Wolji Pond.png"
+						src="resources/img/Winter Wonderland_Donggung Palace & Wolji Pond.png"
 						alt="Winter Wonderland_Donggung Palace & Wolji Pond" width="100">
 					<div class="carousel-caption">
 						<h3>New York</h3>
@@ -314,7 +334,7 @@ a.nav-link {
 								<div class="heart" style="height: 10px; width: 10px;"></div>
 							</div>
 							<div class="image">
-								<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+								<img src="resources/img/Light of Baekhakbong Peak.png"
 									alt="경기 호텔 이미지">
 							</div>
 							<div class="details">
@@ -341,7 +361,7 @@ a.nav-link {
 								<div class="heart" style="height: 10px; width: 10px;"></div>
 							</div>
 							<div class="image">
-								<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+								<img src="resources/img/Light of Baekhakbong Peak.png"
 									alt="경기 호텔 이미지">
 							</div>
 							<div class="details">
@@ -368,7 +388,7 @@ a.nav-link {
 								<div class="heart" style="height: 10px; width: 10px;"></div>
 							</div>
 							<div class="image">
-								<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+								<img src="resources/img/Light of Baekhakbong Peak.png"
 									alt="경기 호텔 이미지">
 							</div>
 							<div class="details">
@@ -395,7 +415,7 @@ a.nav-link {
 								<div class="heart" style="height: 10px; width: 10px;"></div>
 							</div>
 							<div class="image">
-								<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+								<img src="resources/img/Light of Baekhakbong Peak.png"
 									alt="경기 호텔 이미지">
 							</div>
 							<div class="details">
@@ -422,7 +442,7 @@ a.nav-link {
 								<div class="heart" style="height: 10px; width: 10px;"></div>
 							</div>
 							<div class="image">
-								<img src="WEB-INF/resources/img/Light of Baekhakbong Peak.png"
+								<img src="resources/img/Light of Baekhakbong Peak.png"
 									alt="경기 호텔 이미지">
 							</div>
 							<div class="details">

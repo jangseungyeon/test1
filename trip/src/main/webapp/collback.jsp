@@ -37,7 +37,7 @@
        	  $('#naver_password').val(id);
        	  $('#naver_name').val(name);
        	  $('#naver_email').val(email);
-       	  document.querySelector('#kakao_form').submit();
+       	  $('#kakao_form').submit();
 		}
 	</script>
 </body>

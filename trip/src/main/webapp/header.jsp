@@ -44,7 +44,6 @@ String user_id = session.getAttribute("user_id") != null ? session.getAttribute(
 
 					<ul class="nav justify-content-end bg-success">
 						<li class="nav-item"><a class="nav-link">${user_name}님 접속중</a></li>
-						<a href="user_info.do">내정보</a>
 						<li class="nav-item"><a class="nav-link"
 							href="user_logout.do">로그아웃</a></li>
 					</ul>

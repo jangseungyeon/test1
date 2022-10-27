@@ -8,12 +8,6 @@
 		INSERT INTO USER (USER_ID, USER_PASSWORD, USER_NAME,USER_EMAIL,USER_PHONE,USER_TYPE) 
 		VALUES (#{user_id}, #{user_password}, #{user_name},#{user_email},#{user_phone},#{user_type})
 	</insert>
-	<update id="user_update">
-		UPDATE USER SET USER_PASSWORD =#{user_password}, USER_NAME=#{user_name}, USER_BIRTH=#{user_birth},
-		USER_GENDER=#{user_gender}, USER_EMAIL=#{user_email}, USER_PHONE=#{user_phone},
-		USER_ADDRESS1=#{user_address1}, USER_ADDRESS2=#{user_address2}
-		WHERE USER_ID=#{user_id} 
-	</update>
 	
 <select id="idCheck" resultType="user">
 		SELECT * FROM USER WHERE USER_ID= #{user_id}
@@ -22,8 +16,17 @@
 	<select id="login" resultType="user">
 		SELECT * FROM USER WHERE USER_ID= #{user_id} AND USER_PASSWORD=#{user_password}
 	</select>
-	<select id="info" resultType="user">
-		SELECT * FROM USER WHERE USER_ID= #{user_id}
+	
+	<select id="find" resultType="user">
+		SELECT * FROM USER WHERE 1=1
+		<if test="find == 'phone' "> AND USER_PHONE = #{user_phone} </if>
+		<if test="find == 'email' "> AND USER_EMAIL = #{user_email}</if>
+		AND USER_TYPE = #{user_type}
 	</select>
 	
+	<update id="change">
+		UPDATE USER 
+		SET USER_PASSWORD =#{user_password}
+		WHERE USER_ID=#{user_id}
+	</update>
 </mapper>
