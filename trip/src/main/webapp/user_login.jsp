@@ -32,6 +32,7 @@ function kakaoLogin() {
         	  console.log(account.email);
         	  if(account.email==null||account.email==''){
         		  alert('이메일 동의 필수사항');
+        		  kakaoLogout();
         	  }else{
         	  $('#kakao_id').val(response.id);
         	  $('#kakao_password').val(response.id);
@@ -89,6 +90,7 @@ function kakaoLogout() {
 
 <button onclick="kakaoLogin()">카카오 로그인</button>
 <button onclick="kakaoLogout()">카카오 로그아웃</button>
+<button onclick="naverLogout()">네이버 로그아웃</button>
 
 							<a type="button" class="btn" id="naverIdLogin_loginButton" href="javascript:void(0)">네이버 로그인</a>
 					<script
@@ -135,7 +137,7 @@ function kakaoLogout() {
 								}
 							});
 						});
-
+						
 						var testPopUp;
 						function openPopUp() {
 							testPopUp = window

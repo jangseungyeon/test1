@@ -11,16 +11,20 @@ String user_id = session.getAttribute("user_id") != null ? session.getAttribute(
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
 <!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 
 <!-- Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <link href="resources/css/style.css" rel="stylesheet">
 
@@ -47,10 +51,9 @@ String user_id = session.getAttribute("user_id") != null ? session.getAttribute(
 
 					<ul class="nav justify-content-end bg-success">
 						<li class="nav-item"><a class="nav-link">${user_name}님 접속중</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="user_logout.do">로그아웃</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="host_login.do">호스트</a></li>
+						<li class="nav-item"><a class="nav-link" href="user_logout.do">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" href="user_myinfo.jsp">내정보</a></li>
+						<li class="nav-item"><a class="nav-link" href="host_login.do">호스트</a></li>
 					</ul>
 				</c:when>
 
@@ -68,12 +71,9 @@ String user_id = session.getAttribute("user_id") != null ? session.getAttribute(
 					</ul>
 
 					<ul class="nav justify-content-end bg-success">
-						<li class="nav-item"><a class="nav-link"
-							href="user_login.jsp">회원가입</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="user_login.jsp">로그인</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="host_login.do">호스트</a></li>
+						<li class="nav-item"><a class="nav-link" href="user_login.jsp">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link" href="user_login.jsp">로그인</a></li>
+						<li class="nav-item"><a class="nav-link" href="host_login.do">호스트</a></li>
 					</ul>
 				</c:otherwise>
 			</c:choose>

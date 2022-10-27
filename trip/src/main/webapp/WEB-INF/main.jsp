@@ -6,6 +6,14 @@
 <title>main</title>
 <%@ include file="header.jsp"%>
 
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+
 <style>
 * {
 	margin: 0px;
@@ -28,12 +36,15 @@ a {
 /* 	background-color: #f5f5f5; */
 /* } */
 
-
 .form-search {
 	display: flex;
 	margin-top: 40px;
 	margin-bottom: 40px;
-	width: 40%;
+	width: 60%;
+}
+
+.container {
+    margin-top: 100px;
 }
 
 .input-group {
@@ -114,7 +125,7 @@ ul#pills-tab {
 .card img {
 	width: 100%;
 	max-width: 300px;
- 	height: auto; 
+	height: auto;
 	display: block;
 }
 
@@ -202,13 +213,41 @@ ul#pills-tab {
 	animation: 0.5s visible;
 }
 
-@keyframes visible {
-  0%{
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+@
+keyframes visible { 0%{
+	opacity: 0;
+}
+
+100
+
+
+
+
+
+
+%
+{
+opacity
+
+
+
+
+
+
+:
+
+
+
+
+
+
+1
+
+
+
+
+;
+}
 }
 
 /* 이달의테마 시작 */
@@ -339,14 +378,12 @@ ul#pills-tab {
 }
 
 .month-thema {
-    margin-top: 50px;
+	margin-top: 50px;
 }
-
 
 /* 이달의테마 끝 */
 
 /* 리뷰 시작 */
-
 .review {
 	max-width: 800px;
 	margin: 0 auto;
@@ -433,28 +470,71 @@ img {
 }
 
 /* 리뷰 끝 */
-
 </style>
+
+<!-- bxslider -->
+<script>
+	$(function() {
+		$('.bxslider').bxSlider({
+
+			auto : true,
+// 			autoControls : true,
+			infiniteLoop : true,
+			pager : true,
+			//     captions: true,
+			slideWidth : 600
+		});
+	});
+</script>
+
 </head>
 
 <body>
 
 	<div class="container-fluid">
 
-		<!-- 메인 검색창 -->
-		<div class="input-group">
-			<form name="" action="서 치 액 션.do " method="post" class="form-search">
-				<div class="input-group">
-					<input class="form-control" placeholder="검색" />
-					<button class="btn btn-success" type="button">Search</button>
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<!-- 메인 검색창 -->
+					<div class="input-group">
+						<form name="" action="서 치 액 션.do " method="post"
+							class="form-search">
+							<div class="input-group">
+								<input class="form-control" placeholder="검색" />
+								<button class="btn btn-success" type="button">Search</button>
+							</div>
+						</form>
+					</div>
 				</div>
-			</form>
+
+				<div class="col-6">
+					<div>
+						<div class="bxslider">
+							<div>
+								<img
+									src="resources/img/Winter Wonderland_Donggung Palace & Wolji Pond.png"
+									title="">
+							</div>
+							<div>
+								<img src="resources/img/Light of Baekhakbong Peak.png" title="">
+							</div>
+							<div>
+								<img src="resources/img/Colorful Skywalk.png" title="">
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 
-		<!-- Carousel 시작 -->
+
+		<!-- 
+		Carousel 시작
 		<div id="mainpic" class="carousel slide" data-bs-ride="carousel">
 
-			<!-- Indicators/dots -->
+			Indicators/dots
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#mainpic" data-bs-slide-to="0"
 					class="active"></button>
@@ -462,7 +542,7 @@ img {
 				<button type="button" data-bs-target="#mainpic" data-bs-slide-to="2"></button>
 			</div>
 
-			<!-- The slideshow/carousel -->
+			The slideshow/carousel
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<img src="resources/img/Colorful Skywalk.png"
@@ -495,7 +575,7 @@ img {
 
 
 
-			<!-- Left and right controls/icons -->
+			Left and right controls/icons
 			<button class="carousel-control-prev" type="button"
 				data-bs-target="#mainpic" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon"></span>
@@ -505,11 +585,11 @@ img {
 				<span class="carousel-control-next-icon"></span>
 			</button>
 		</div>
-		<!-- Carousel 끝 -->
+		Carousel 끝 -->
 
 		<!-- 이달의 테마 시작 -->
 		<div class="month-thema">
-		<h2>이달의 테마</h2>
+			<h2>이달의 테마</h2>
 			<ul class="ch-grid">
 				<li>
 					<div class="ch-item ch-img-1">
@@ -1720,104 +1800,104 @@ img {
 			</div>
 		</div>
 		<!-- 테마 끝 -->
-		
-		
-	<!-- 연결고리 시작 -->
-	<div class="container-fluid mt-3">
-		<h1 class="main-h1">숙박과 플래너 연결고리</h1>
-	</div>
-	<!-- 연결고리 끝 -->
-	<div id="map" style="width: 100%; height: 350px;"></div>
+
+
+		<!-- 연결고리 시작 -->
+		<div class="container-fluid mt-3">
+			<h1 class="main-h1">숙박과 플래너 연결고리</h1>
+		</div>
+		<!-- 연결고리 끝 -->
+		<div id="map" style="width: 100%; height: 350px;"></div>
 
 
 
 
 
-	<div class="review">
-		<h1>여행 후기</h1>
-		<ul class="cards_review">
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Colorful Skywalk.png">
+		<div class="review">
+			<h1>여행 후기</h1>
+			<ul class="cards_review">
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Colorful Skywalk.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
+				</li>
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Light of Baekhakbong Peak.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-				</div>
-			</li>
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Light of Baekhakbong Peak.png">
+				</li>
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Colorful Skywalk.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
+				</li>
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Light of Baekhakbong Peak.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-				</div>
-			</li>
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Colorful Skywalk.png">
+				</li>
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Colorful Skywalk.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
+				</li>
+				<li class="cards_review_item">
+					<div class="card_review">
+						<div class="card_image">
+							<img src="resources/img/Light of Baekhakbong Peak.png">
+						</div>
+						<div class="card_review_content">
+							<h2 class="card_review_title">서울 여행 후기</h2>
+							<p class="card_review_text">역시 서울이 최고</p>
+							<button class="btn card_review_btn">후기 보기</button>
+						</div>
 					</div>
-				</div>
-			</li>
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Light of Baekhakbong Peak.png">
-					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
-					</div>
-				</div>
-			</li>
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Colorful Skywalk.png">
-					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
-					</div>
-				</div>
-			</li>
-			<li class="cards_review_item">
-				<div class="card_review">
-					<div class="card_image">
-						<img src="resources/img/Light of Baekhakbong Peak.png">
-					</div>
-					<div class="card_review_content">
-						<h2 class="card_review_title">서울 여행 후기</h2>
-						<p class="card_review_text">역시 서울이 최고</p>
-						<button class="btn card_review_btn">후기 보기</button>
-					</div>
-				</div>
-			</li>
-		</ul>
-		
-	</div>
+				</li>
+			</ul>
+
+		</div>
 
 
 
 
 
 
-	
+
 	</div>
 </body>
 </html>
