@@ -90,12 +90,49 @@ return "user_login.jsp?fail=1";
 		}
 	}
 	
-	// 아이디중복체크
+	// 로그아웃
 	@RequestMapping("/user_logout.do")
 	public String user_logout(HttpSession session) {
 		System.out.println("로그아웃");
 		session.invalidate();
 		return "index.jsp";
 	}
-
+	//아이디찾기
+	@RequestMapping("/user_find.do")
+	public String user_find(UserVO vo,Model model) {
+		vo.setUser_type("own");
+		System.out.println("아이디찾기"+vo);
+		vo=userService.find(vo);
+		System.out.println("찾은결과: "+vo);
+		if(vo!=null) {
+			model.addAttribute("user", vo.getUser_id());
+			return "user_find.jsp";}else {
+				return "user_find.jsp";
+			}
+			
+	}
+	
+	//비밀번호찾기
+		@RequestMapping("/user_pwfind.do")
+		public String user_pwfind(UserVO vo,Model model) {
+			vo.setUser_type("own");
+			System.out.println("비밀번호찾기"+vo);
+			vo=userService.find(vo);
+			System.out.println("찾은결과: "+vo);
+			if(vo!=null) {
+				model.addAttribute("user", vo.getUser_id());
+				return "user_pwfind.jsp";}else {
+					return "user_pwfind.jsp";
+				}
+				
+		}
+		//비밀번호 변경하기
+		
+		@RequestMapping("/user_change.do")
+		public String user_change(UserVO vo,Model model) {
+			System.out.println("비밀번호변경"+vo);
+			int a=userService.change(vo);
+			System.out.println("변경여부:" +a);
+			return "user_pwfind.jsp";			
+		}
 }

@@ -16,4 +16,17 @@
 	<select id="login" resultType="user">
 		SELECT * FROM USER WHERE USER_ID= #{user_id} AND USER_PASSWORD=#{user_password}
 	</select>
+	
+	<select id="find" resultType="user">
+		SELECT * FROM USER WHERE 1=1
+		<if test="find == 'phone' "> AND USER_PHONE = #{user_phone} </if>
+		<if test="find == 'email' "> AND USER_EMAIL = #{user_email}</if>
+		AND USER_TYPE = #{user_type}
+	</select>
+	
+	<update id="change">
+		UPDATE USER 
+		SET USER_PASSWORD =#{user_password}
+		WHERE USER_ID=#{user_id}
+	</update>
 </mapper>
